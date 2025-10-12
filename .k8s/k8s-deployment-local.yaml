@@ -17,13 +17,14 @@ spec:
       containers:
       - name: juntos-colaborar-function
         image: juntos-colaborar-function:latest
+        imagePullPolicy: Never
         ports:
         - containerPort: 80
         env:
         - name: FUNCTIONS_WORKER_RUNTIME
           value: "dotnet-isolated"
         - name: RabbitMQConnectionString
-          value: "amqp://guest:guest@rabbitmq.local:5672"
+          value: "amqp://guest:guest@rabbitmq-service:5672"
         - name: AzureWebJobsDisableHomepage
           value: "true"
         resources:

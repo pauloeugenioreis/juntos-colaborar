@@ -1,0 +1,13 @@
+# Ignorar arquivos desnecessários no Docker build
+.git/
+.gitignore
+bin/
+obj/
+docs/
+scripts/
+.k8s/
+*.md
+local.settings.json
+local.settings.example.json
+.github/
+.vscode/
