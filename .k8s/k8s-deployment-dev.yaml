@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: juntos-colaborar-function-dev
+  labels:
+    app: juntos-colaborar-function
+    environment: development
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: juntos-colaborar-function
+      environment: development
+  template:
+    metadata:
+      labels:
+        app: juntos-colaborar-function
+        environment: development
+    spec:
+      containers:
+      - name: juntos-colaborar-function
+        image: juntos-colaborar-function:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: FUNCTIONS_WORKER_RUNTIME
+          value: "dotnet-isolated"
+        - name: RabbitMQConnectionString
+          value: "amqp://guest:guest@rabbitmq.local:5672"
+        - name: AzureWebJobsDisableHomepage
+          value: "true"
+        - name: ASPNETCORE_ENVIRONMENT
+          value: "Development"
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "250m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: juntos-colaborar-service-dev
+  labels:
+    environment: development
+spec:
+  selector:
+    app: juntos-colaborar-function
+    environment: development
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
