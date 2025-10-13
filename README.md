@@ -10,7 +10,8 @@ Uma Azure Function .NET C# que consome mensagens da fila RabbitMQ `dev.demo.junt
 .
 ├── src/                           # Código fonte
 │   ├── JuntosColaborar.cs        # Função principal
-│   └── Program.cs                # Configuração da aplicação
+│   ├── Program.cs                # Configuração da aplicação
+│   └── JuntosColaborar.csproj        # Arquivo do projeto .NET
 ├── .k8s/                         # Arquivos Kubernetes
 │   ├── Dockerfile               # Container Docker
 │   └── k8s-deployment-local.yaml # Deployment local
@@ -19,7 +20,6 @@ Uma Azure Function .NET C# que consome mensagens da fila RabbitMQ `dev.demo.junt
 ├── docs/                         # Documentação
 │   ├── README.md                # Documentação detalhada
 │   └── RABBITMQ_SETUP.md        # Setup do RabbitMQ
-├── JuntosColaborar.csproj        # Arquivo do projeto .NET
 ├── host.json                     # Configuração do Functions Host
 ├── local.settings.json           # Configurações locais
 └── .gitignore                    # Arquivos ignorados pelo Git

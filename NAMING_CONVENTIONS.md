@@ -56,7 +56,7 @@ kubectl apply -f .k8s/k8s-deployment-dev.yaml
 kubectl apply -f .k8s/k8s-deployment-prod.yaml
 
 # Docker build usa .k8s/
-docker build -f .k8s/Dockerfile -t app:latest .
+docker build -t app:latest .
 ```
 
 ## 🎯 **Resultado Final**

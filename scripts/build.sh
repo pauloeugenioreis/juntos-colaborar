@@ -3,7 +3,7 @@
 echo "=== Build e Deploy Azure Function JuntosColaborar ==="
 
 # Verificar se está no diretório correto
-if [ ! -f "JuntosColaborar.csproj" ]; then
+if [ ! -f "src/JuntosColaborar.csproj" ]; then
     echo "Erro: Execute este script no diretório raiz do projeto"
     exit 1
 fi
@@ -44,7 +44,7 @@ while true; do
             ;;
         4)
             echo "Fazendo build da imagem Docker..."
-            docker build -f .k8s/Dockerfile -t juntos-colaborar-function:latest .
+            docker build -t juntos-colaborar-function:latest .
             echo "Carregando imagem no Minikube..."
             minikube image load juntos-colaborar-function:latest
             ;;

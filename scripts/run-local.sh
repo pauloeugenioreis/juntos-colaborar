@@ -4,7 +4,7 @@
 echo "=== Executando Azure Function JuntosColaborar ==="
 
 # Verificar se está no diretório correto
-if [ ! -f "JuntosColaborar.csproj" ]; then
+if [ ! -f "src/JuntosColaborar.csproj" ]; then
     echo "Erro: Execute este script no diretório raiz do projeto"
     exit 1
 fi

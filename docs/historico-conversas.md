@@ -21,7 +21,7 @@ Criar uma Azure Function .NET C# do tipo RabbitMQTrigger chamada **JuntosColabor
 **Arquivos Criados:**
 - `src/JuntosColaborar.cs` - Função principal
 - `src/Program.cs` - Configuração da aplicação
-- `JuntosColaborar.csproj` - Configuração do projeto
+- `src/JuntosColaborar.csproj` - Configuração do projeto
 - `local.settings.json` - Configurações locais
 - `host.json` - Configurações do host
 
@@ -216,10 +216,9 @@ EXPOSE 80
 
 ### 📁 **Estrutura Final do Projeto:**
 ```
-📁 juntos-colaborar/
-├── 📁 src/
 │   ├── JuntosColaborar.cs
-│   └── Program.cs
+│   ├── Program.cs
+│   └── JuntosColaborar.csproj
 ├── 📁 .k8s/
 │   ├── Dockerfile
 │   └── k8s-deployment-local.yaml
@@ -233,7 +232,6 @@ EXPOSE 80
 ├── .dockerignore
 ├── .gitignore
 ├── host.json
-├── JuntosColaborar.csproj
 └── local.settings.json
 ```
 

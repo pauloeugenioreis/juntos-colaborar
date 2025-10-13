@@ -6,7 +6,8 @@
 JuntosColaborar/
 ├── 📁 src/                                    # Código fonte
 │   ├── JuntosColaborar.cs                    # Função principal com RabbitMQTrigger
-│   └── Program.cs                            # Configuração da aplicação
+│   ├── Program.cs                            # Configuração da aplicação
+│   └── JuntosColaborar.csproj                # Arquivo do projeto .NET
 │
 ├── 📁 .k8s/                                   # Arquivos Kubernetes
 │   ├── Dockerfile                           # Container Docker
@@ -25,7 +26,6 @@ JuntosColaborar/
 │   ├── README.md                           # Documentação detalhada
 │   └── RABBITMQ_SETUP.md                   # Setup do RabbitMQ
 │
-├── 📄 JuntosColaborar.csproj                 # Arquivo do projeto .NET
 ├── 📄 host.json                              # Configuração do Functions Host
 ├── 📄 local.settings.json                    # Configurações locais
 ├── 📄 local.settings.example.json            # Exemplo de configurações

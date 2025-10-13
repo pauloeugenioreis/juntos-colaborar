@@ -4,13 +4,13 @@
 echo "=== Deploy Azure Function no Kubernetes ==="
 
 # Verificar se está no diretório correto
-if [ ! -f "JuntosColaborar.csproj" ]; then
+if [ ! -f "src/JuntosColaborar.csproj" ]; then
     echo "Erro: Execute este script no diretório raiz do projeto"
     exit 1
 fi
 
 echo "1. Fazendo build da imagem Docker..."
-docker build -f .k8s/Dockerfile -t juntos-colaborar-function:latest .
+docker build -t juntos-colaborar-function:latest .
 
 if [ $? -ne 0 ]; then
     echo "❌ Erro no build da imagem Docker"

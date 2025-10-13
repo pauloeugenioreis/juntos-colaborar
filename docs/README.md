@@ -85,14 +85,21 @@ kubectl logs -l app=juntos-colaborar-function -f
 
 ```
 .
-├── JuntosColaborar.cs      # Função principal
-├── Program.cs              # Configuração da aplicação
-├── JuntosColaborar.csproj  # Arquivo do projeto
-├── host.json              # Configuração do host
-├── local.settings.json    # Configurações locais
-├── Dockerfile             # Para containerização
-├── k8s-deployment.yaml    # Deployment Kubernetes
-└── README.md              # Este arquivo
+├── src/                           # Código fonte
+│   ├── JuntosColaborar.cs        # Função principal
+│   ├── Program.cs                # Configuração da aplicação
+│   └── JuntosColaborar.csproj    # Arquivo do projeto .NET
+├── .k8s/                         # Arquivos Kubernetes
+│   ├── Dockerfile               # Container Docker
+│   └── k8s-deployment-local.yaml # Deployment local
+├── scripts/                       # Scripts de automação
+│   └── build.sh                 # Script de build e deploy
+├── docs/                         # Documentação
+│   ├── README.md                # Documentação detalhada
+│   └── RABBITMQ_SETUP.md        # Setup do RabbitMQ
+├── host.json                     # Configuração do Functions Host
+├── local.settings.json           # Configurações locais
+└── .gitignore                    # Arquivos ignorados pelo Git
 ```
 
 ## Funcionalidades
