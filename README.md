@@ -1,5 +1,7 @@
 # Azure Function JuntosColaborar
 
+> 🎯 **[Ver Apresentação do Projeto](https://spiral-hull-28458762.figma.site)** 
+
 Uma Azure Function .NET C# que consome mensagens da fila RabbitMQ `dev.demo.juntos.colaborar`.
 
 ## 🏗️ Estrutura do Projeto
