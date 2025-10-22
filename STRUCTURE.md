@@ -4,27 +4,27 @@
 
 ```
 JuntosColaborar/
-├── 📁 src/                                    # Código fonte
+├── 📁 src/                                   # Código fonte
 │   ├── JuntosColaborar.cs                    # Função principal com RabbitMQTrigger
 │   ├── Program.cs                            # Configuração da aplicação
 │   └── JuntosColaborar.csproj                # Arquivo do projeto .NET
 │
-├── 📁 .k8s/                                   # Arquivos Kubernetes
-│   ├── Dockerfile                           # Container Docker
-│   ├── k8s-deployment-local.yaml            # Deploy para Minikube/Local
-│   ├── k8s-deployment-dev.yaml              # Deploy para Desenvolvimento
-│   ├── k8s-deployment-prod.yaml             # Deploy para Produção
-│   └── ENVIRONMENTS.md                      # Documentação dos ambientes
+├── 📁 .k8s/                                  # Arquivos Kubernetes
+│   ├── Dockerfile                            # Container Docker
+│   ├── k8s-deployment-local.yaml             # Deploy para Minikube/Local
+│   ├── k8s-deployment-dev.yaml               # Deploy para Desenvolvimento
+│   ├── k8s-deployment-prod.yaml              # Deploy para Produção
+│   └── ENVIRONMENTS.md                       # Documentação dos ambientes
 │
 ├── 📁 scripts/                               # Scripts de automação
-│   ├── build.sh                            # Menu interativo completo
-│   ├── run-local.sh                        # Executar localmente
-│   ├── deploy-k8s.sh                       # Deploy automatizado no K8s
-│   └── send-test-messages.sh               # Enviar mensagens de teste
+│   ├── build.sh                              # Menu interativo completo
+│   ├── run-local.sh                          # Executar localmente
+│   ├── deploy-k8s.sh                         # Deploy automatizado no K8s
+│   └── send-test-messages.sh                 # Enviar mensagens de teste
 │
 ├── 📁 docs/                                  # Documentação
-│   ├── README.md                           # Documentação detalhada
-│   └── RABBITMQ_SETUP.md                   # Setup do RabbitMQ
+│   ├── README.md                             # Documentação detalhada
+│   └── RABBITMQ_SETUP.md                     # Setup do RabbitMQ
 │
 ├── 📄 host.json                              # Configuração do Functions Host
 ├── 📄 local.settings.json                    # Configurações locais

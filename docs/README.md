@@ -55,6 +55,36 @@ dotnet restore
 func start
 ```
 
+## Executando com Docker Compose
+
+### Pré-requisitos
+- Docker
+- Docker Compose
+
+### Comandos
+
+```bash
+# Executar aplicação e RabbitMQ
+./scripts/run-docker-compose.sh
+
+# Ou diretamente:
+docker-compose up --build
+```
+
+### Acesso aos Serviços
+- **Aplicação**: http://localhost:7072
+- **RabbitMQ UI**: http://localhost:15672 (guest/guest)
+
+### Funcionalidades
+- RabbitMQ é iniciado automaticamente com a fila `dev.demo.juntos.colaborar` criada.
+- A aplicação conecta-se ao RabbitMQ via Docker network.
+- Dados do RabbitMQ são persistidos em um volume Docker.
+
+### Parar os Serviços
+```bash
+docker-compose down
+```
+
 ## Deploy no Kubernetes/Minikube
 
 ### Build da imagem Docker
@@ -86,20 +116,20 @@ kubectl logs -l app=juntos-colaborar-function -f
 ```
 .
 ├── src/                           # Código fonte
-│   ├── JuntosColaborar.cs        # Função principal
-│   ├── Program.cs                # Configuração da aplicação
-│   └── JuntosColaborar.csproj    # Arquivo do projeto .NET
-├── .k8s/                         # Arquivos Kubernetes
-│   ├── Dockerfile               # Container Docker
-│   └── k8s-deployment-local.yaml # Deployment local
+│   ├── JuntosColaborar.cs         # Função principal
+│   ├── Program.cs                 # Configuração da aplicação
+│   └── JuntosColaborar.csproj     # Arquivo do projeto .NET
+├── .k8s/                          # Arquivos Kubernetes
+│   ├── Dockerfile                 # Container Docker
+│   └── k8s-deployment-local.yaml  # Deployment local
 ├── scripts/                       # Scripts de automação
-│   └── build.sh                 # Script de build e deploy
-├── docs/                         # Documentação
-│   ├── README.md                # Documentação detalhada
-│   └── RABBITMQ_SETUP.md        # Setup do RabbitMQ
-├── host.json                     # Configuração do Functions Host
-├── local.settings.json           # Configurações locais
-└── .gitignore                    # Arquivos ignorados pelo Git
+│   └── build.sh                   # Script de build e deploy
+├── docs/                          # Documentação
+│   ├── README.md                  # Documentação detalhada
+│   └── RABBITMQ_SETUP.md          # Setup do RabbitMQ
+├── host.json                      # Configuração do Functions Host
+├── local.settings.json            # Configurações locais
+└── .gitignore                     # Arquivos ignorados pelo Git
 ```
 
 ## Funcionalidades

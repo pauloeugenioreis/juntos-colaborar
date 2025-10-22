@@ -9,20 +9,22 @@ Uma Azure Function .NET C# que consome mensagens da fila RabbitMQ `dev.demo.junt
 ```
 .
 ├── src/                           # Código fonte
-│   ├── JuntosColaborar.cs        # Função principal
-│   ├── Program.cs                # Configuração da aplicação
-│   └── JuntosColaborar.csproj        # Arquivo do projeto .NET
-├── .k8s/                         # Arquivos Kubernetes
-│   ├── Dockerfile               # Container Docker
-│   └── k8s-deployment-local.yaml # Deployment local
+│   ├── JuntosColaborar.cs         # Função principal
+│   ├── Program.cs                 # Configuração da aplicação
+│   └── JuntosColaborar.csproj     # Arquivo do projeto .NET
+├── docker-compose.yml             # Configuração Docker Compose
+├── .k8s/                          # Arquivos Kubernetes
+│   ├── Dockerfile                 # Container Docker
+│   └── k8s-deployment-local.yaml  # Deployment local
 ├── scripts/                       # Scripts de automação
-│   └── build.sh                 # Script de build e deploy
-├── docs/                         # Documentação
-│   ├── README.md                # Documentação detalhada
-│   └── RABBITMQ_SETUP.md        # Setup do RabbitMQ
-├── host.json                     # Configuração do Functions Host
-├── local.settings.json           # Configurações locais
-└── .gitignore                    # Arquivos ignorados pelo Git
+│   ├── build.sh                   # Script de build e deploy
+│   └── run-docker-compose.sh      # Script para executar com Docker Compose
+├── docs/                          # Documentação
+│   ├── README.md                  # Documentação detalhada
+│   └── RABBITMQ_SETUP.md          # Setup do RabbitMQ
+├── host.json                      # Configuração do Functions Host
+├── local.settings.json            # Configurações locais
+└── .gitignore                     # Arquivos ignorados pelo Git
 ```
 
 ## 🚀 Quick Start
@@ -37,6 +39,11 @@ Uma Azure Function .NET C# que consome mensagens da fila RabbitMQ `dev.demo.junt
 ```bash
 ./scripts/build.sh
 # Escolha opção 4 (Build Docker) e depois opção 5 (Deploy K8s)
+```
+
+### Executar com Docker Compose
+```bash
+./scripts/run-docker-compose.sh
 ```
 
 ## 📚 Documentação

@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: rabbitmq:management-alpine
+    container_name: rabbitmq-juntos
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 30s
+      timeout: 10s
+  queue-setup:
+    image: rabbitmq:management-alpine
+    container_name: queue-setup-juntos
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    environment:
+      RABBITMQ_HOST: rabbitmq
+      RABBITMQ_PORT: 5672
+      RABBITMQ_USER: guest
+      RABBITMQ_PASS: guest
+    command: ["rabbitmqadmin", "declare", "queue", "name=dev.demo.juntos.colaborar", "durable=true"]
+    restart: "no"
+
+  app:
+    build: .
+    container_name: juntos-colaborar-app
+    ports:
+      - "7072:80"
+    environment:
+      - FUNCTIONS_WORKER_RUNTIME=dotnet-isolated
+      - RabbitMQConnectionString=amqp://guest:guest@rabbitmq:5672
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      queue-setup:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+volumes:
+  rabbitmq_data:
